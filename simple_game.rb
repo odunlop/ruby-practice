@@ -10,7 +10,7 @@ def simple_game
   
   success_count = 0
 
-  while success_count < 2
+  while success_count <= 2 do
   puts "Where will you go, adventurer? Right, left, or forward?"
   choice = gets.chomp.downcase
     if choice == "right"
@@ -20,7 +20,7 @@ def simple_game
           success_count = 0
           puts "Reviving . . ."
         elsif restart == "no"
-          puts "Goodbye... For now."
+          print "Goodbye... For now."
           break
         end
     elsif choice == "left"
@@ -30,16 +30,24 @@ def simple_game
           success_count = 0
           puts "Reviving . . ."
         elsif restart == "no"
-          puts "Goodbye... For now."
+          print "Goodbye... For now."
           break
         end
     elsif choice == "forward"
-      puts "Success! Now choose again..."
-        success_count = success_count.+(1)
-         if success_count == 2
-          puts "You won!"
+      success_count = success_count.+(1)
+      if success_count < 2
+        puts "Success! Now choose again..."
+      elsif success_count == 2
+        puts "Congrats, you won! Want to try again?"
+        choice = gets.chomp.downcase
+        if choice == "yes"
+          success_count = 0
+          puts "Restarting..."
+        else
+          print "Enjoy your victory... For now."
           break
-         end
+        end
+      end
     end
   end
 end
