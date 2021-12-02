@@ -17,7 +17,8 @@ def simple_game
       puts "You die (there's a goblin). Try again?"
       restart = gets.chomp.downcase
         if restart == "yes"
-          simple_game
+          success_count = 0
+          puts "Reviving . . ."
         elsif restart == "no"
           puts "Goodbye... For now."
           break
@@ -26,7 +27,8 @@ def simple_game
       puts "You die (there's a werewolf). Try again?"
       restart = gets.chomp.downcase
         if restart == "yes"
-          simple_game
+          success_count = 0
+          puts "Reviving . . ."
         elsif restart == "no"
           puts "Goodbye... For now."
           break
